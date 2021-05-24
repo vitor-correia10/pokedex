@@ -1,0 +1,27 @@
+.pageContainer {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	background: #fffefc;
+	height: 100vh;
+	width: 100vw;
+	background: black;
+}
+
+.errorTitle {
+	color: #366bd0;
+	display: flex;
+	align-items: center;
+	font-size: 24px;
+}
+
+.errorSubtitle {
+	color: white;
+	font-size: 18px;
+}
+
+.styledLink {
+	text-decoration: none;
+	color: #456eb9;
+}
