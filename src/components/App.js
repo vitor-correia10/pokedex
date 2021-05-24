@@ -1,15 +1,15 @@
-import React from 'react';
+import React from "react";
 import {
   BrowserRouter as Router,
   Switch,
   Route
-} from 'react-router-dom';
-import './App.css';
+} from "react-router-dom";
+import "./App.css";
 
 //Components
-import Navbar from './navbar';
-import FetchPokemons from './fetchPokemons';
-import FourOhFour from './fourOhFour';
+import Navbar from "./navbar";
+import Homepage from "./homepage";
+import FourOhFour from "./fourOhFour";
 
 function App() {
   
@@ -18,8 +18,14 @@ function App() {
       <Navbar/>
       <Switch>
         <Route exact path="/">
-          <FetchPokemons/>
+          <Homepage/>
         </Route>
+        {/* <Route path="/pokemon/:id">
+            <Product />
+        </Route>
+        <Route path="/mypokemons">
+            <Product />
+        </Route> */}
         <Route path="*">
           <FourOhFour />
         </Route>

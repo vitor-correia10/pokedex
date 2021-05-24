@@ -2,11 +2,10 @@ import React from "react";
 import { NavLink } from "react-router-dom"
 import "./Navbar.css";
 import { CgPokemon } from "react-icons/cg";
-import {FaBars} from "react-icons/fa";
 
 const Navbar = () => {
     return (
-        <div className="nav">
+        <header className="nav">
             <NavLink to="/">
                 <CgPokemon className="logo"/>
             </NavLink>
@@ -15,7 +14,7 @@ const Navbar = () => {
                     My Pokémons
                 </NavLink>
             </div>
-        </div>
+        </header>
     );
 };
 

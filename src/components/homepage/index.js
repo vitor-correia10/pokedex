@@ -1,13 +1,15 @@
-import React from 'react';
-import Loading from '../loading';
+import React from "react";
+import Loading from "../loading";
+import './Homepage.css';
+import Card from '../card';
 
-const FetchPokemons = () => {
+const Homepage = () => {
     let offset = 0;
     let loadNumber = 20;
     const [loading, setLoading] = React.useState(true);
     const [pokemons, setPokemons] = React.useState([]);
-    const [previousPage, setPreviousPage] = React.useState('');
-    const [nextPage, setNextPage] = React.useState('');
+    const [previousPage, setPreviousPage] = React.useState("");
+    const [nextPage, setNextPage] = React.useState("");
     const [currentPage, setCurrentPage] = React.useState(`https://pokeapi.co/api/v2/pokemon?offset=${offset}&limit=${loadNumber}`);
   
   React.useEffect(() => {
@@ -29,12 +31,12 @@ const FetchPokemons = () => {
   }, [currentPage]);
 
   const loadingPokemon = async (data) => {
-    let _pokemonDetails = await Promise.all(data.map(async pokemon => {
+    let pokemonDetails = await Promise.all(data.map(async pokemon => {
       let pokemonRecord = await getAllPokemonDetails(pokemon.url);
       return pokemonRecord;
     }))
 
-    setPokemons(_pokemonDetails);
+    setPokemons(pokemonDetails);
   }
 
   const getAllPokemonDetails = async (url) => {
@@ -45,7 +47,7 @@ const FetchPokemons = () => {
       return data;
 
     } catch (error) {
-      console.log('error', error);
+      console.log("error", error);
     }
   }
 
@@ -60,23 +62,26 @@ const FetchPokemons = () => {
   const goToNextPage = () => {
     setCurrentPage(nextPage)
   }
+
   return (
-    <div>
-        {
-          pokemons.map(pokemon => (
-            <div key={pokemon.order}>{pokemon.name}
-            {
-            pokemon.types.map(type => (
-              <p>{type.type.name}</p>
-            ))
-            } 
-            </div>
-          ))  
-        }
+    <section>
+      <div className="btn">
         <button onClick={goToPreviousPage} disabled={previousPage === null}>Previous </button>
         <button onClick={goToNextPage} disabled={nextPage === null}>Next </button>
-    </div>
+      </div>
+      <div className="container">
+        {
+          pokemons.map(pokemon => {
+            return <Card key={pokemon.id} pokemon={pokemon} />
+          })
+        }
+      </div>
+      <div className="btn">
+        <button onClick={goToPreviousPage} disabled={previousPage === null}>Previous </button>
+        <button onClick={goToNextPage} disabled={nextPage === null}>Next </button>
+      </div>
+    </section>
   )
 }
 
-export default FetchPokemons;
+export default Homepage;

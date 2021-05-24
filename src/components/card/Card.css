@@ -1,0 +1,127 @@
+.Card {
+	background: white;
+	border-radius: 10px;
+}
+
+.img {
+	text-align: center;
+}
+
+.types {
+	display: flex;
+	justify-content: center;
+}
+
+.type {
+	padding: 5px 10px;
+	margin: 10px 10px 10px 0;
+	border-radius: 5px;
+	background: #366bd0;
+	color: #fff;
+}
+
+.name {
+	text-align: center;
+	text-transform: capitalize;
+	font-weight: 800;
+}
+
+.info {
+	margin-left: 10px;
+}
+
+.data {
+	padding-bottom: 10px;
+	display: flex;
+	justify-content: center;
+}
+
+.data p {
+	font-weight: 700;
+}
+
+.data span {
+	font-weight: 400;
+}
+
+.ability {
+	display: block;
+}
+
+.card {
+	border: 5px solid #000000;
+	border-radius: 10px;
+}
+
+/* Type Color */
+.bug {
+	border-color: #729f3f;
+}
+
+.dark {
+	border-color: #707070;
+}
+
+.dragon {
+	border-color: #53a4cf;
+}
+
+.electric {
+	border-color: #eed535;
+}
+
+.fairy {
+	border-color: #fdb9e9;
+}
+
+.fighting {
+	border-color: #d56723;
+}
+
+.fire {
+	border-color: #fd7d24;
+}
+
+.flying {
+	border-color: #3dc7ef;
+}
+
+.ghost {
+	border-color: #7b62a3;
+}
+
+.grass {
+	border-color: #9bcc50;
+}
+
+.ground {
+	border-color: #f7de3f;
+}
+
+.ice {
+	border-color: #51c4e7;
+}
+
+.normal {
+	border-color: #a4acaf;
+}
+
+.poison {
+	border-color: #b97fc9;
+}
+
+.pyschic {
+	border-color: #f366b9;
+}
+
+.rock {
+	border-color: #a38c21;
+}
+
+.steel {
+	border-color: #b8b8d0;
+}
+
+.water {
+	border-color: #4592c4;
+}
