@@ -4,8 +4,6 @@ export const MyPokemonsContext = React.createContext();
 
 export const MyPokemonsProvider = ({ children }) => {
   const [myPokemons, setMyPokemons] = React.useState([]);
-
-  console.log('*** myPokemons', myPokemons)
  
   return (
     <MyPokemonsContext.Provider
