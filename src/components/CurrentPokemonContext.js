@@ -49,8 +49,8 @@ export const CurrentPokemonProvider = ({ children }) => {
       
       return data;
 
-    } catch (error) {
-      console.log("error", error);
+    } catch (err) {
+      console.log(err);
     }
   }
 

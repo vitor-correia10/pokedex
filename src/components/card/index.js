@@ -3,7 +3,6 @@ import './Card.css';
 
 const Card = ({pokemon, children}) => {
     return (
-      <>
         <div className={`card ${pokemon.types[0].type.name}`}>
           <div className="img">
               <img src={pokemon.sprites.front_default} alt={pokemon.name} />
@@ -46,7 +45,6 @@ const Card = ({pokemon, children}) => {
           </div>
           {children}
         </div>
-      </>
     );
 };
 

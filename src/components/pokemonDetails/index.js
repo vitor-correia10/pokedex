@@ -3,6 +3,7 @@ import { useParams, useHistory } from "react-router-dom";
 import Loading from '../loading';
 import Card from '../card';
 import './PokemonDetails.css';
+import { MyPokemonsContext } from "../MyPokemonsContext";
 
 const PokemonDetails = () => {
   const { id } = useParams();
@@ -11,6 +12,10 @@ const PokemonDetails = () => {
   const [pokemonByNumericOrder, setPokemonByNumericOrder] = React.useState([]);
   const [pokemonEvolution, setPokemonEvolution] = React.useState([]);
   const [allPokemonEvolution, setAllPokemonEvolution] = React.useState([]);
+  const {
+    myPokemons,
+    setMyPokemons,
+  } = React.useContext(MyPokemonsContext);
 
   React.useEffect(() => {
     const getPokemonById = async () => {
@@ -21,7 +26,6 @@ const PokemonDetails = () => {
 
         getPokemonSpecies(currentPokemonData);
         setPokemonById(currentPokemonData);
-        setLoading(false);
       } catch (err) {
         console.log(err);
       }
@@ -32,7 +36,8 @@ const PokemonDetails = () => {
         const url = data.species.url;
         const res = await fetch(url);
         const speciesData = await res.json();
-      
+        setLoading(false);
+
         if(speciesData){
           getPokemonEvolution(speciesData);
         }
@@ -89,24 +94,34 @@ const PokemonDetails = () => {
   
   }, []);
 
-  if (loading) {
-    return <Loading />;
-  }
-
+  
   const pokemonEvolutionByOrder = async () => {
     const displayOrder = await allPokemonEvolution.sort(function(a, b){return a.id-b.id});
-    console.log('displayOrder', displayOrder)
     setPokemonByNumericOrder(displayOrder);
   }
   pokemonEvolutionByOrder();
 
-  console.log('pokemonByNumericOrder', pokemonByNumericOrder);
+  const findPokemonInYourList = myPokemons.some(item => item.id === pokemonById.id);
+  
+  if (loading) {
+    return <Loading />;
+  }
+
   return (
     <div className="pokemonDetail">
       <Card pokemon={pokemonById}>
+        <div className="catchBtn">
+          <button class="catchButton" disabled={findPokemonInYourList} onClick={() => setMyPokemons(prevState => [
+            ...prevState, pokemonById ])}>
+              {
+                findPokemonInYourList ? 'In Your List' : "Catch"
+              }
+          </button>
+        </div>
+
         {
          pokemonEvolution.length !== 0 && 
-          <div className="flex-evolution">
+          <div className="flexEvolution">
               {
                 pokemonByNumericOrder.map (pokemonEvolutionData => {
                   return (

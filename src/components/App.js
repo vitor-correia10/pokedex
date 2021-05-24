@@ -12,6 +12,7 @@ import Homepage from "./homepage";
 import PokemonDetails from './pokemonDetails';
 import FourOhFour from "./fourOhFour";
 import Loading from "./loading";
+import MyCatchedPokemons from "./myPokemons";
 
 import { CurrentPokemonContext } from "./CurrentPokemonContext";
 
@@ -29,11 +30,11 @@ function App() {
           <Homepage/>
         </Route>
         <Route exact path="/pokemon/:id">
-            <PokemonDetails />
+          <PokemonDetails />
         </Route>
-        {/* <Route path="/mypokemons">
-            <MyPokemons />
-          </Route> */}
+        <Route path="/myPokemons">
+          <MyCatchedPokemons />
+        </Route>
         <Route path="*">
           <FourOhFour />
         </Route>
