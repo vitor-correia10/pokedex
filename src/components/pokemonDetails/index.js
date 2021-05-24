@@ -2,13 +2,13 @@ import React from "react";
 import { useParams, useHistory } from "react-router-dom";
 import Loading from '../loading';
 import Card from '../card';
-import { Link } from "react-router-dom";
 import './PokemonDetails.css';
 
 const PokemonDetails = () => {
   const { id } = useParams();
   const [loading, setLoading] = React.useState(true);
   const [pokemonById, setPokemonById] = React.useState([]);
+  const [pokemonByNumericOrder, setPokemonByNumericOrder] = React.useState([]);
   const [pokemonEvolution, setPokemonEvolution] = React.useState([]);
   const [allPokemonEvolution, setAllPokemonEvolution] = React.useState([]);
 
@@ -77,12 +77,13 @@ const PokemonDetails = () => {
           let all = await allPokemonEvolution.push(speciesData);
           return all;
         }))
-
+        
+        
         setAllPokemonEvolution(allPokemonEvolution);
       } catch (err) {
         console.log(err);
       }
-
+      
     }
     getPokemonById();
   
@@ -91,7 +92,15 @@ const PokemonDetails = () => {
   if (loading) {
     return <Loading />;
   }
-  console.log('setAllPokemonEvolution', allPokemonEvolution)
+
+  const pokemonEvolutionByOrder = async () => {
+    const displayOrder = await allPokemonEvolution.sort(function(a, b){return a.id-b.id});
+    console.log('displayOrder', displayOrder)
+    setPokemonByNumericOrder(displayOrder);
+  }
+  pokemonEvolutionByOrder();
+
+  console.log('pokemonByNumericOrder', pokemonByNumericOrder);
   return (
     <div className="pokemonDetail">
       <Card pokemon={pokemonById}>
@@ -99,12 +108,12 @@ const PokemonDetails = () => {
          pokemonEvolution.length !== 0 && 
           <div className="flex-evolution">
               {
-                allPokemonEvolution.map (pokemonEvolutionData => {
+                pokemonByNumericOrder.map (pokemonEvolutionData => {
                   return (
-                    <Link onClick={() => {window.location.href=`/pokemon/${pokemonEvolutionData.id}`}}>
+                    <a onClick={() => {window.location.href=`/pokemon/${pokemonEvolutionData.id}`}}>
                       <img src={pokemonEvolutionData.sprites.front_default} alt={pokemonEvolutionData.name} />
                       <span>{pokemonEvolutionData.name}</span>
-                    </Link>
+                    </a>
                   )
                 })
               }
