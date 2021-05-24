@@ -1,3 +1,8 @@
+a {
+	color: inherit;
+	text-decoration: inherit;
+}
+
 .Card {
 	background: white;
 	border-radius: 10px;
@@ -10,6 +15,7 @@
 .types {
 	display: flex;
 	justify-content: center;
+	text-transform: capitalize;
 }
 
 .type {
@@ -46,6 +52,7 @@
 
 .ability {
 	display: block;
+	text-transform: capitalize;
 }
 
 .card {

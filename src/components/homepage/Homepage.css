@@ -1,12 +1,11 @@
 .btn {
 	display: flex;
-	justify-content: center;
+	justify-content: space-between;
 	margin: 20px 0;
 }
 
 .btn button {
 	padding: 5px 10px;
-	margin-right: 10px;
 	border-radius: 5px;
 	border: 2px solid #30a7d7;
 	background: #30a7d7;
@@ -29,10 +28,13 @@
 	cursor: default;
 }
 
-.container {
+section {
 	width: 80%;
-	display: grid;
 	margin: 0 auto;
+}
+
+.container {
+	display: grid;
 	grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
 	grid-gap: 10px;
 }
