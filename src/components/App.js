@@ -6,7 +6,8 @@ import {
 } from 'react-router-dom';
 import './App.css';
 
-//Pages
+//Components
+import Navbar from './navbar';
 import FetchPokemons from './fetchPokemons';
 import FourOhFour from './fourOhFour';
 
@@ -14,6 +15,7 @@ function App() {
   
   return (
     <Router>
+      <Navbar/>
       <Switch>
         <Route exact path="/">
           <FetchPokemons/>

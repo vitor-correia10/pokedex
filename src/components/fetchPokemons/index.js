@@ -1,6 +1,5 @@
 import React from 'react';
 import Loading from '../loading';
-import picture from '../../assets/pokemon.png';
 
 const FetchPokemons = () => {
     let offset = 0;
@@ -63,7 +62,6 @@ const FetchPokemons = () => {
   }
   return (
     <div>
-        <img src={picture} alt="Telus Logo" />
         {
           pokemons.map(pokemon => (
             <div key={pokemon.order}>{pokemon.name}
