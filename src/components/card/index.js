@@ -1,17 +1,16 @@
 import React from "react";
 import './Card.css';
-import { Link } from "react-router-dom";
 
 const Card = ({pokemon, children}) => {
     return (
-      <Link to={`/pokemon/${pokemon.id}`}>
+      <>
         <div className={`card ${pokemon.types[0].type.name}`}>
           <div className="img">
               <img src={pokemon.sprites.front_default} alt={pokemon.name} />
           </div>
-          <div className="name">
+          <h1 className="name">
               {pokemon.name}
-          </div>
+          </h1>
           <div className="types">
               {
                 pokemon.types.map((type,i) => {
@@ -47,7 +46,7 @@ const Card = ({pokemon, children}) => {
           </div>
           {children}
         </div>
-      </Link>
+      </>
     );
 };
 

@@ -28,11 +28,11 @@ function App() {
         <Route exact path="/">
           <Homepage/>
         </Route>
-        <Route path="/pokemon/:id">
+        <Route exact path="/pokemon/:id">
             <PokemonDetails />
         </Route>
         {/* <Route path="/mypokemons">
-            <Product />
+            <MyPokemons />
           </Route> */}
         <Route path="*">
           <FourOhFour />

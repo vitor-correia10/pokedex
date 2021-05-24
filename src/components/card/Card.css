@@ -62,73 +62,73 @@ a {
 
 /* Type Color */
 .bug {
-	border-color: #729f3f;
+	background: #729f3f;
 }
 
 .dark {
-	border-color: #707070;
+	background: #707070;
 }
 
 .dragon {
-	border-color: #53a4cf;
+	background: #53a4cf;
 }
 
 .electric {
-	border-color: #eed535;
+	background: #eed535;
 }
 
 .fairy {
-	border-color: #fdb9e9;
+	background: #fdb9e9;
 }
 
 .fighting {
-	border-color: #d56723;
+	background: #d56723;
 }
 
 .fire {
-	border-color: #fd7d24;
+	background: #fd7d24;
 }
 
 .flying {
-	border-color: #3dc7ef;
+	background: #3dc7ef;
 }
 
 .ghost {
-	border-color: #7b62a3;
+	background: #7b62a3;
 }
 
 .grass {
-	border-color: #9bcc50;
+	background: #9bcc50;
 }
 
 .ground {
-	border-color: #f7de3f;
+	background: #f7de3f;
 }
 
 .ice {
-	border-color: #51c4e7;
+	background: #51c4e7;
 }
 
 .normal {
-	border-color: #a4acaf;
+	background: #a4acaf;
 }
 
 .poison {
-	border-color: #b97fc9;
+	background: #b97fc9;
 }
 
 .pyschic {
-	border-color: #f366b9;
+	background: #f366b9;
 }
 
 .rock {
-	border-color: #a38c21;
+	background: #a38c21;
 }
 
 .steel {
-	border-color: #b8b8d0;
+	background: #b8b8d0;
 }
 
 .water {
-	border-color: #4592c4;
+	background: #4592c4;
 }

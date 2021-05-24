@@ -1,6 +1,7 @@
 import React from "react";
 import './Homepage.css';
 import Card from '../card';
+import { NavLink } from "react-router-dom";
 
 import { CurrentPokemonContext } from "../CurrentPokemonContext";
 
@@ -30,7 +31,11 @@ const Homepage = () => {
       <div className="container">
         {
           pokemons.map(pokemon => {
-            return <Card key={pokemon.id} pokemon={pokemon} />
+            return (
+              <NavLink to={`/pokemon/${pokemon.id}`}>
+                <Card key={pokemon.id} pokemon={pokemon} />
+              </NavLink>
+            )
           })
         }
       </div>
