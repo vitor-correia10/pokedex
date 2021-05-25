@@ -11,7 +11,7 @@ const MyCatchedPokemons = () => {
   } = React.useContext(MyPokemonsContext);
 
   return (
-    <div className="myPokemonsGrid">
+    <div className="container myPokemonsGrid">
       {myPokemons.length === 0 ? <p className="withoutPokemon">You don't have any pokemon yet!</p> : 
         <>
           {
